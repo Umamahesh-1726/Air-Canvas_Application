@@ -17,7 +17,7 @@ const GestureRecognizer: React.FC = () => {
     const drawCtx = drawCanvas.getContext('2d')!;
 
     const hands = new Hands({
-      locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`,
+      locateFile: (file: string) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`,
     });
 
     hands.setOptions({
@@ -27,13 +27,13 @@ const GestureRecognizer: React.FC = () => {
       minTrackingConfidence: 0.7,
     });
 
-    hands.onResults((results) => {
+    hands.onResults((results:any) => {
       const ctx = canvasElement.getContext('2d')!;
       ctx.clearRect(0, 0, canvasElement.width, canvasElement.height);
 
       // Flip video feed and draw it on canvas
       ctx.save();
-      ctx.translate(canvasElement.width, 0);
+      ctx.translate(canvasElement.width, 0);  
       ctx.scale(-1, 1);
       ctx.drawImage(results.image, 0, 0, canvasElement.width, canvasElement.height);
       ctx.restore();

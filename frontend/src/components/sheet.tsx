@@ -179,7 +179,7 @@ const Sheet: React.FC = () => {
     const SAVE_AFTER_STROKES = 30;
 
     const hands = new Hands({
-      locateFile: (file) =>
+      locateFile: (file: string) =>
         `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`,
     });
 
@@ -190,7 +190,7 @@ const Sheet: React.FC = () => {
       minTrackingConfidence: 0.7,
     });
 
-    hands.onResults((results) => {
+    hands.onResults((results:any) => {
       cameraCtx.clearRect(0, 0, cameraCanvas.width, cameraCanvas.height);
 
       cameraCtx.save();
