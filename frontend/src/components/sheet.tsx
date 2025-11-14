@@ -23,8 +23,8 @@ const Sheet: React.FC = () => {
   const isDrawingRef = useRef(true);
 
   // actual React state
-  const [drawingHistory, setDrawingHistory] = useState<string[]>([]);
-  const [historyStep, setHistoryStep] = useState<number>(-1);
+  // const [drawingHistory, setDrawingHistory] = useState<string[]>([]);
+  // const [historyStep, setHistoryStep] = useState<number>(-1);
 
   const [isDrawing, setIsDrawing] = useState(true);
   const [strokeColor, setStrokeColor] = useState("blue");
@@ -53,8 +53,8 @@ const Sheet: React.FC = () => {
 
       historyIndexRef.current = historyStackRef.current.length - 1;
 
-      setDrawingHistory([...historyStackRef.current]);
-      setHistoryStep(historyIndexRef.current);
+      // setDrawingHistory([...historyStackRef.current]);
+      // setHistoryStep(historyIndexRef.current);
     } catch (error) {
       console.error("Error saving to history:", error);
     }
@@ -82,7 +82,7 @@ const Sheet: React.FC = () => {
       ctx.drawImage(img, 0, 0);
 
       historyIndexRef.current = newStep;
-      setHistoryStep(newStep);
+      // setHistoryStep(newStep);
     };
     img.src = targetImage;
 
